@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import CustomButton from './components/CustomButton'
 
 function App() {
   const [count, setCount] = useState<number>(0)
@@ -16,19 +17,19 @@ function App() {
 
   return (
     <div className='p-10'>
-      <h1 className='text-5xl font-bold underline text-blue-800 w-fit'>Hola mundo</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)} className='bg-green-700 text-white px-4 py-2 font-bold rounded-full mt-5 hover:text-gray-100 hover:scale-110 transition-all'>
+      <h1 className='text-5xl font-bold underline text-orange-600 w-fit'>Hola mundo</h1>
+        {/*Este es un botón con estilos condicionales */}
+        <button className={`${count > 10 ? 'bg-purple-700' : 'bg-blue-700'} text-white px-4 py-2 font-bold rounded-full mt-5 hover:text-gray-100 hover:scale-110 transition-all`} onClick={() => setCount(count + 1)} >
           count is {count}
         </button>
 
-        {/* Esta es la impresión de un objeto */}
-        <p>{persona.nombre}: {persona.edad}</p>
+        {/*Esto es una condición if-else */}
+        {count > 10
+          ? <p>{persona.nombre}</p>
+          : personas.map((fulano, index) => <p key={index}>{fulano.nombre}</p>)
+        }
 
-        {/* Esta es la impresión de un array  */}
-        {personas.map((fulano, index) => <p key={index}>Hola, {fulano.nombre}, tienes {fulano.edad}</p>)}
-
-      </div>
+        <CustomButton text={`resta el contador ${count}`} bgColor='blue-800' cb={() => setCount(count - 1)} />
     </div>
   )
 }

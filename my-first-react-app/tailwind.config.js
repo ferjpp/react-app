@@ -8,4 +8,9 @@ export default {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /(bg|text|border)-(red|blue|green|yellow|purple)/,
+    },
+  ],
 };
